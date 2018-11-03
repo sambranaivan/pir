@@ -14,6 +14,7 @@ void setup() {
   pinMode(4,INPUT);
   pinMode(2,INPUT);
   pinMode(3,OUTPUT);
+  pinMode(5,OUTPUT);
   Serial.begin(9600);
   // put your setup code here, to run once:
   now = millis();
@@ -25,10 +26,12 @@ void loop() {
 if(presencia())
 {
   Serial.println("Presencia Detectada");  
+  digitalWrite(5,HIGH);
   now = millis();  
 }
 else
 {
+  digitalWrite(5,LOW);
   Serial.println("no");  
   if(timer())
   {
